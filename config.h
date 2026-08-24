@@ -2,14 +2,14 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int barpadv	= 10;		/* bar vertical padding (from top)*/
-static const unsigned int barpadh	= 200;		/* bar vertical padding (from top)*/
-static const unsigned int barheight	= 2;		/* bar vertical padding (from top)*/
-static const unsigned int barborder	= 2;		/* bar vertical padding (from top)*/
+static const unsigned int barpadv	= 8;		/* bar vertical padding (from top)*/
+static const unsigned int barpadh	= 30;		/* bar vertical padding (from top)*/
+static const unsigned int barheight	= 3;		/* bar vertical padding (from top)*/
+static const unsigned int barborder	= 3;		/* bar vertical padding (from top)*/
 static const unsigned int floatbar	= 1;		/* 0 means bar won't float; float or dock the bar */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 0;        /* 0 means bottom bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
@@ -52,7 +52,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \

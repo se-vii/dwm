@@ -1832,7 +1832,7 @@ updatebars(void)
         if (m->barwin)
             continue;
         if (floatbar) {
-            m->barwin = XCreateWindow(dpy, root, barpadh, barpadv, m->ww - 2 * barpadh, bh + barheight, 0, DefaultDepth(dpy, screen),
+            m->barwin = XCreateWindow(dpy, root, barpadh, m->by, m->ww - 2 * barpadh, bh + barheight, 0, DefaultDepth(dpy, screen),
                                       CopyFromParent, DefaultVisual(dpy, screen),
                                       CWOverrideRedirect|CWBackPixmap|CWEventMask, &wa);
 			XSetWindowBorder(dpy, m->barwin, scheme[SchemeBar][ColBorder].pixel);
@@ -1856,9 +1856,9 @@ updatebarpos(Monitor *m)
     if (floatbar) {
 	    if (m->showbar) {
 		/* IF YOU ARE USING GAPS, PLEASE ADD BARBORDER TO THE END */
-        m->wh = m->mh - (barheight + bh + barpadv * 2 + barborder); 	/* Reduce window height to account for bar */
-        m->by = barpadv; 												/* Position bar at vertical padding from top */
-        m->wy = m->my + (barheight + bh + barpadv * 2 + barborder); 	/* Start window area below the bar */
+        m->wh -= (barheight + bh + barpadv * 2 + barborder);	/* Reduce window height to account for bar */
+        m->by = m->topbar ? barpadv : m->wh;	/* Position bar at vertical padding */
+        m->wy = m->topbar ? m->my + (barheight + bh + barpadv * 2 + barborder) : m->wy; 	/* Start window area below bar, or on top if topbar = 0 */
 	    }
          else {
             m->by = -bh - (barheight + bh + barpadv * 2 + barborder);
