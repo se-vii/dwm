@@ -1,0 +1,3 @@
+config.h       # local custom config, ignored
+dwm            # ignored compiled binary
+*.o            # ignored object files
