@@ -2,6 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int gappx		= 10;		/*geps between windows */
 static const unsigned int barpadv	= 10;		/* bar vertical padding (from top)*/
 static const unsigned int barpadh	= 15;		/* bar vertical padding (from top)*/
 static const unsigned int barheight	= 3;		/* bar vertical padding (from top)*/
@@ -94,6 +95,12 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
+	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+	{ MODKEY|ShiftMask,             XK_minus,  setgaps,        {.i = 10  } },
+
+
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
